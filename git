@@ -1,0 +1,5 @@
+git add 文件名
+
+git commit -m "文件简要介绍"
+
+git push origin master
