@@ -9,7 +9,7 @@ filetype on
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" F5编译和运行C程序，F6编译和运行C++程序
+" F5编译和运行C程序，F6编译和运行C++程序,F8运行sh
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " C的编译和运行
 map <F5> :call CompileRunGcc()<CR>
@@ -24,6 +24,12 @@ func! CompileRunGpp()
 exec "w"
 exec "!g++ -Wall % -o %<"
 exec "! ./%<"
+endfunc
+"shell的运行
+map <F8> :call CompileRunSh()<CR>
+func! CompileRunSh()
+exec "w"
+exec "!bash ./%"
 endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,3 +178,4 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
+
