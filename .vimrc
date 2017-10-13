@@ -9,27 +9,29 @@ filetype on
 set nocompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" F5编译和运行C程序，F6编译和运行C++程序,F8运行sh
+" F5编译和运行程序
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" C的编译和运行
-map <F5> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-exec "w"
-exec "!gcc -Wall % -o %<"
-exec "! ./%<"
-endfunc
-" C++的编译和运行
-map <F6> :call CompileRunGpp()<CR>
-func! CompileRunGpp()
-exec "w"
-exec "!g++ -Wall % -o %<"
-exec "! ./%<"
-endfunc
-"shell的运行
-map <F8> :call CompileRunSh()<CR>
-func! CompileRunSh()
-exec "w"
-exec "!bash ./%"
+autocmd BufNewFile *.cpp,*.c,*.sh exec ":call Compile()"
+
+map <F5> :call Compile()<CR>
+func! Compile()
+	" C的编译和运行
+	if &filetype == 'c'	
+		exec "w"
+		exec "!gcc -Wall % -o %<"
+		exec "! ./%<"
+	endif
+	" C++的编译和运行
+	if &filetype == 'cpp' 
+		exec "w"
+		exec "!g++ -Wall % -o %<"
+		exec "! ./%<"
+	endif
+	"shell的运行
+	if &filetype == 'sh'		
+		exec "w"
+		exec "!bash ./%"
+	endif
 endfunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -67,7 +69,7 @@ let Tlist_Process_File_Always=1
 "实时更新tags
 let Tlist_Inc_Winwidth=0
 "按F7生成ctags
-map <F7> :! ctags -R --languages=c<CR>
+map <F8> :! ctags -R --languages=c<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示设置
