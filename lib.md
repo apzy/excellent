@@ -127,7 +127,9 @@ int main(void)
 
 `gcc -o main main.c -I . -L . -lcalc`
 
-###7.将动态库位置添加到/etc/ld.so.conf中
+###7.使用动态库
+将库所在的目录添加到/etc/ld.so.conf中
+执行ldconfig
 
 
 
