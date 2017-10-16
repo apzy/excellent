@@ -129,11 +129,6 @@ int main(void)
 
 ###7.将动态库位置添加到/etc/ld.so.conf中
 
-6.编译程序
-
-`gcc -o main main.c -I . -L . -lcalc`
-
-7.将动态库位置添加到/etc/ld.so.conf中
 
 
 
