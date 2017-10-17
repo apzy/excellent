@@ -47,8 +47,7 @@ main.c
 int main(void)
 {
 	printf("%d %d\n",add(5,3),minus(5,3));
-    
-    return 0;
+   	return 0;
 }
 ```
 
@@ -130,6 +129,22 @@ int main(void)
 ###7.使用动态库
 将库所在的目录添加到/etc/ld.so.conf中
 执行ldconfig
+
+###8.动态库版本更新 
+修改实现代码,执行命令
+
+`gcc -fPIC -c bill.c`
+
+`gcc -fPIC -c fred.c`
+
+`gcc -shared -Wl,-soname,libcalc.so.1 -o libcalc.so.1.0.1 bill.o fred.o`
+
+`sudo ldconf -n ./`
+
+查看链接
+
+`ls -ln`
+
 
 
 
