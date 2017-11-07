@@ -1,6 +1,5 @@
 ##静态库的生成
 
-
 ###1.编写头文件
 
 lib.h
@@ -40,8 +39,8 @@ int minus(int a, int b)
 ###5.编写主函数
 
 main.c
+
 ```
-#include <stdio.h>
 #include "lib.h"
 
 int main(void)
@@ -50,7 +49,6 @@ int main(void)
    	return 0;
 }
 ```
-
 ###6.编译程序
 
 `gcc -o main main.c -I . -L . -lfoo`
@@ -111,7 +109,6 @@ int minus(int a, int b)
 
 main.c
 ```
-#include <stdio.h>
 #include "lib.h"
 
 int main(void)

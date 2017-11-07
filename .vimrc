@@ -33,7 +33,7 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "注释,Ctrl-t
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-t> :call Annotation()<CR>
+map <C-u> :call Annotation()<CR>
 func! Annotation()
 exec "s#^#//#g"
 endfunc
@@ -177,3 +177,9 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cmap man Man
+nmap K: Man <cword><CR>
